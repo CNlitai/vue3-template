@@ -197,7 +197,7 @@ watch([() => paginationData.currentPage, () => paginationData.pageSize], getTabl
 			</div>
 		</el-card>
 		<!-- 新增/修改 -->
-		<el-dialog v-model="dialogVisible" :title="currentUpdateId === undefined ? '新增用户' : '修改用户'" @close="resetForm" width="30%">
+		<el-dialog append-to-body v-model="dialogVisible" :title="currentUpdateId === undefined ? '新增用户' : '修改用户'" @close="resetForm" width="30%">
 			<el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px" label-position="left">
 				<el-form-item prop="username" label="用户名">
 					<el-input v-model="formData.username" placeholder="请输入" />
