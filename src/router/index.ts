@@ -63,6 +63,7 @@ export const constantRoutes: RouteRecordRaw[] = [
 		name: 'Table',
 		meta: {
 			title: '表格',
+			alwaysShow: true,
 			elIcon: 'Grid',
 		},
 		children: [
