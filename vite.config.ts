@@ -6,7 +6,6 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import svgLoader from 'vite-svg-loader'
-import UnoCSS from 'unocss/vite'
 const pathSrc = path.resolve(__dirname, './src')
 
 /** 配置项文档：https://cn.vitejs.dev/config */
@@ -29,7 +28,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
 			/** 设置 host: true 才可以使用 Network 的形式，以 IP 访问项目 */
 			host: true, // host: "0.0.0.0"
 			/** 端口号 */
-			port: 5001,
+			port: 5173,
 			/** 是否自动打开浏览器 */
 			open: false,
 			/** 跨域设置允许 */
@@ -81,8 +80,6 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
 				iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
 				symbolId: 'icon-[dir]-[name]',
 			}),
-			/** UnoCSS */
-			UnoCSS(),
 		],
 		test: {
 			include: ['tests/**/*.test.ts'],

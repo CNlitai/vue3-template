@@ -10,7 +10,7 @@ interface LoadingInstance {
 }
 
 interface UseFullscreenLoading {
-	<T extends (...args: any[]) => ReturnType<T>>(fn: T, options?: LoadingOptions): (...args: Parameters<T>) => Promise<ReturnType<T>>
+	<T extends (...args: unknown[]) => ReturnType<T>>(fn: T, options?: LoadingOptions): (...args: Parameters<T>) => Promise<ReturnType<T>>
 }
 
 /**

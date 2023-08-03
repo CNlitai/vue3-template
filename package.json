@@ -12,7 +12,7 @@
     "preview:prod": "pnpm build:prod && vite preview",
     "lint:eslint": "eslint --cache --max-warnings 0 \"{src,tests,types}/**/*.{vue,js,jsx,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write \"{src,tests,types}/**/*.{vue,js,jsx,ts,tsx,json,css,less,scss,html,md}\"",
-    "lint": "pnpm lint:eslint && pnpm lint:prettier",
+    "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
     "prepare": "husky install",
     "test": "vitest"
   },
@@ -58,7 +58,6 @@
     "sass": "1.64.0",
     "terser": "5.19.1",
     "typescript": "5.1.6",
-    "unocss": "0.53.5",
     "vite": "4.4.6",
     "vite-plugin-svg-icons": "2.0.1",
     "vite-svg-loader": "4.0.0",

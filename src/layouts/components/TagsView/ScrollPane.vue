@@ -69,8 +69,10 @@ const scrollTo = (direction: 'left' | 'right', distance: number = translateDista
 const moveTo = () => {
 	const tagRefs = props.tagRefs
 	for (let i = 0; i < tagRefs.length; i++) {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		if (route.path === tagRefs[i].$props.to.path) {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			const el: HTMLElement = tagRefs[i].$el
 			const offsetWidth = el.offsetWidth

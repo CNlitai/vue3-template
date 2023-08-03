@@ -29,6 +29,7 @@ export const useSettingsStore = defineStore('settings', () => {
 	const _getCacheData = () => {
 		const settings = {} as LayoutSettings
 		for (const [key, value] of Object.entries(state)) {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			settings[key as SettingsStoreKey] = value.value
 		}
