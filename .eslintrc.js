@@ -8,7 +8,7 @@ module.exports = {
 		$ref: 'readonly',
 		$computed: 'readonly',
 	},
-	extends: ['plugin:vue/vue3-essential', 'eslint:recommended', '@vue/typescript/recommended', '@vue/prettier'],
+	extends: ['plugin:vue/vue3-essential', 'eslint:recommended', '@vue/typescript/recommended', '@vue/prettier', '@unocss'],
 	parserOptions: {
 		ecmaVersion: 2020,
 	},

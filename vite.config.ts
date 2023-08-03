@@ -7,7 +7,7 @@ import Vue from '@vitejs/plugin-vue'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import svgLoader from 'vite-svg-loader'
 const pathSrc = path.resolve(__dirname, './src')
-
+import UnoCSS from 'unocss/vite'
 /** 配置项文档：https://cn.vitejs.dev/config */
 export default (configEnv: ConfigEnv): UserConfigExport => {
 	const viteEnv = loadEnv(configEnv.mode, process.cwd())
@@ -82,6 +82,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
 				iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
 				symbolId: 'icon-[dir]-[name]',
 			}),
+			UnoCSS(),
 		],
 		test: {
 			include: ['tests/**/*.test.ts'],

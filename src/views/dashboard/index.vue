@@ -9,6 +9,7 @@ const sum = $ref<number>(0)
 </script>
 
 <template>
+	<div class="h-2xl w-2xl flex bg-green"></div>
 	{{ sum }}
 	<el-button @click="sum++">+</el-button>
 	<component :is="isAdmin ? Admin : Editor" />
