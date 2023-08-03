@@ -47,8 +47,6 @@ specifiers:
   vue-eslint-parser: 9.3.1
   vue-router: 4.2.4
   vue-tsc: 1.8.5
-  vxe-table: 4.4.2
-  vxe-table-plugin-element: 3.0.7
   xe-utils: 3.5.11
 
 dependencies:
@@ -66,8 +64,6 @@ dependencies:
   screenfull: 6.0.2
   vue: 3.3.4
   vue-router: 4.2.4_vue@3.3.4
-  vxe-table: 4.4.2_vue@3.3.4+xe-utils@3.5.11
-  vxe-table-plugin-element: 3.0.7_vxe-table@4.4.2
   xe-utils: 3.5.11
 
 devDependencies:
@@ -5843,24 +5839,6 @@ packages:
       '@vue/runtime-dom': 3.3.4
       '@vue/server-renderer': 3.3.4_vue@3.3.4
       '@vue/shared': 3.3.4
-
-  /vxe-table-plugin-element/3.0.7_vxe-table@4.4.2:
-    resolution: {integrity: sha512-cw9krtPRkqCxszWCnVxzgLOEt1HYN2W5AN+AovlN6i7/4gtp1O7YFFVbqmpGYfUU2uf0deXgJXru53Bx9WY20Q==}
-    peerDependencies:
-      vxe-table: ^4.2.0
-    dependencies:
-      vxe-table: 4.4.2_vue@3.3.4+xe-utils@3.5.11
-    dev: false
-
-  /vxe-table/4.4.2_vue@3.3.4+xe-utils@3.5.11:
-    resolution: {integrity: sha512-3UdfSeMZ/D5nfTohcnZQQ2gkFZnhvf0v83usOCwx3B1nzBNKAJumg3QviMEox5SdikT8pq9z4vz3a0pesPPrJw==}
-    peerDependencies:
-      vue: ^3.2.28
-      xe-utils: ^3.5.0
-    dependencies:
-      vue: 3.3.4
-      xe-utils: 3.5.11
-    dev: false
 
   /w3c-xmlserializer/4.0.0:
     resolution: {integrity: sha512-d+BFHzbiCx6zGfz0HyQ6Rg69w9k19nviJspaj4yNscGjrHu94sVP+aRm75yEbCh+r2/yR+7q6hux9LVtbuTGBw==}

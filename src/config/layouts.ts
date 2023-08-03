@@ -28,13 +28,14 @@ export interface LayoutSettings {
 
 export const layoutSettings: LayoutSettings = getConfigLayout() ?? {
 	layoutMode: 'left',
-	showSettings: true,
+	// 开启用户配置按钮
+	showSettings: false,
 	showTagsView: true,
 	fixedHeader: true,
 	showLogo: true,
-	showNotify: true,
-	showThemeSwitch: true,
-	showScreenfull: true,
+	showNotify: false,
+	showThemeSwitch: false,
+	showScreenfull: false,
 	cacheTagsView: false,
 	showGreyMode: false,
 	showColorWeakness: false,
