@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/web-types",
+  "framework": "vue",
+  "name": "@vueuse/motion",
+  "version": "^2.0.0-beta.12",
+  "contributions": {
+    "html": {
+      "attributes": [
+        {
+          "name": "v-motion-main-show"
+        },
+        {
+          "name": "v-motion-fade"
+        }
+      ]
+    }
+  }
+}

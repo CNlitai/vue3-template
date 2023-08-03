@@ -3,6 +3,8 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 import store from '@/store'
 import router from '@/router'
+import { MotionPlugin } from '@vueuse/motion'
+
 import '@/router/permission'
 // load
 import { loadSvg } from '@/icons'
@@ -23,6 +25,31 @@ loadPlugins(app)
 loadSvg(app)
 /** 加载自定义指令 */
 loadDirectives(app)
+
+app.use(MotionPlugin, {
+	directives: {
+		'main-show': {
+			initial: {
+				opacity: 0,
+				y: 100,
+			},
+			enter: {
+				opacity: 1,
+				y: 0,
+				transition: {
+					type: 'spring',
+					stiffness: 250,
+					damping: 25,
+					mass: 0.5,
+				},
+			},
+			leave: {
+				opacity: 0,
+				y: -100,
+			},
+		},
+	},
+})
 
 app.use(store).use(router)
 router.isReady().then(() => {

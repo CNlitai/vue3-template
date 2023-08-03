@@ -72,7 +72,6 @@ export const constantRoutes: RouteRecordRaw[] = [
 				name: 'ElementPlus',
 				meta: {
 					title: 'Element Plus',
-					keepAlive: true,
 				},
 			},
 		],
