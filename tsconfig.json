@@ -18,7 +18,7 @@
         "src/*"
       ]
     },
-    "types": ["vitest/globals"],
+    "types": ["unplugin-vue-macros/macros-global","vitest/globals"],
     "lib": [
       "esnext",
       "dom",
@@ -37,5 +37,17 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "vueCompilerOptions": {
+    "plugins": [
+      "@vue-macros/volar/define-options",
+      "@vue-macros/volar/define-models",
+      "@vue-macros/volar/define-props",
+      "@vue-macros/volar/define-props-refs",
+      "@vue-macros/volar/short-vmodel",
+      "@vue-macros/volar/define-slots",
+      "@vue-macros/volar/export-props",
+      "@vue-macros/volar/jsx-directive"
+    ]
+  }
 }

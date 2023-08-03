@@ -2,8 +2,8 @@
 
 import { type ConfigEnv, type UserConfigExport, loadEnv } from 'vite'
 import path from 'path'
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import VueMacros from 'unplugin-vue-macros/vite'
+import Vue from '@vitejs/plugin-vue'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import svgLoader from 'vite-svg-loader'
 const pathSrc = path.resolve(__dirname, './src')
@@ -69,10 +69,12 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
 		},
 		/** Vite 插件 */
 		plugins: [
-			vue({
-				reactivityTransform: true,
+			VueMacros({
+				plugins: {
+					vue: Vue(),
+					// vueJsx: VueJsx(), // 如果需要
+				},
 			}),
-			vueJsx(),
 			/** 将 SVG 静态图转化为 Vue 组件 */
 			svgLoader({ defaultImport: 'url' }),
 			/** SVG */

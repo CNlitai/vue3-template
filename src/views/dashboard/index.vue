@@ -4,10 +4,12 @@ import Admin from './components/Admin.vue'
 import Editor from './components/Editor.vue'
 const userStore = useUserStore()
 const isAdmin = userStore.roles.includes('admin')
-const env = import.meta.env
+
+const sum = $ref<number>(0)
 </script>
 
 <template>
-	{{ env }}
+	{{ sum }}
+	<el-button @click="sum++">+</el-button>
 	<component :is="isAdmin ? Admin : Editor" />
 </template>
