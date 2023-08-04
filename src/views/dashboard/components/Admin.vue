@@ -1,5 +1,5 @@
 <template>
-	<div class="app-container center">
+	<div class="uno-app-container center">
 		<el-empty description="Admin 权限可见" />
 	</div>
 </template>

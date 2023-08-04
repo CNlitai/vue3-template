@@ -16,5 +16,6 @@ export default defineConfig({
 		'uno-flex-center': 'flex justify-center items-center',
 		'uno-flex-x-center': 'flex justify-center',
 		'uno-flex-y-center': 'flex items-center',
+		'uno-app-container': 'p-4',
 	},
 })

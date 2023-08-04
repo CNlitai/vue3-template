@@ -11,7 +11,7 @@ const handleRolesChange = () => {
 </script>
 
 <template>
-	<div class="app-container">
+	<div class="uno-app-container">
 		<SwitchRoles @change="handleRolesChange" />
 		<!-- v-permission 示例 -->
 		<div :key="key" class="margin-top-30">

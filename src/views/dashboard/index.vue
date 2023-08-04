@@ -9,7 +9,7 @@ const sum = $ref<number>(0)
 </script>
 
 <template>
-	<div v-motion-main-show>
+	<div class="uno-app-container" v-motion-main-show>
 		<div class="h-2xl w-2xl flex bg-green"></div>
 		{{ sum }}
 		<el-button type="primary" @click="sum++">+</el-button>

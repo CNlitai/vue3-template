@@ -126,7 +126,7 @@ watch([() => paginationData.currentPage, () => paginationData.pageSize], getTabl
 </script>
 
 <template>
-	<div class="app-container" v-motion-main-show>
+	<div class="uno-app-container" v-motion-main-show>
 		<el-card v-loading="loading" shadow="never" class="search-wrapper">
 			<el-form ref="searchFormRef" :inline="true" :model="searchData">
 				<el-form-item prop="username" label="用户名">
