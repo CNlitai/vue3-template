@@ -21,7 +21,7 @@ router.beforeEach(async (to, _from, next) => {
 		setToken(token)
 	}
 	// 判断该用户是否登录
-	if (getToken()) {
+	if (userStore.token || getToken()) {
 		if (to.path === '/login') {
 			// 如果已经登录，并准备进入 Login 页面，则重定向到主页
 			next({ path: '/' })
@@ -33,9 +33,9 @@ router.beforeEach(async (to, _from, next) => {
 					if (asyncRouteSettings.open) {
 						// 注意：角色必须是一个数组！ 例如: ['admin'] 或 ['developer', 'editor']
 						await userStore.getInfo()
-						const roles = userStore.roles
+						const permissions = userStore.permissions
 						// 根据角色生成可访问的 Routes（可访问路由 = 常驻路由 + 有访问权限的动态路由）
-						permissionStore.setRoutes(roles)
+						permissionStore.setRoutes(permissions)
 					} else {
 						// 没有开启动态路由功能，则启用默认角色
 						userStore.setRoles(asyncRouteSettings.defaultRoles)

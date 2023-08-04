@@ -5,20 +5,25 @@ import { type RouteRecordRaw } from 'vue-router'
 import { constantRoutes, asyncRoutes } from '@/router'
 import asyncRouteSettings from '@/config/async-route'
 
-const hasPermission = (roles: string[], route: RouteRecordRaw) => {
-	const routeRoles = route.meta?.roles
-	return routeRoles ? roles.some(role => routeRoles.includes(role)) : true
+const hasPermission = (permissions: string[], route: RouteRecordRaw) => {
+	const routeRoles = route.meta?.permission
+	return permissions.indexOf(typeof routeRoles === 'string' ? routeRoles : '') > -1
 }
 
-const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[]) => {
+const filterAsyncRoutes = (routes: RouteRecordRaw[], permissions: string[]) => {
 	const res: RouteRecordRaw[] = []
 	routes.forEach(route => {
 		const tempRoute = { ...route }
-		if (hasPermission(roles, tempRoute)) {
-			if (tempRoute.children) {
-				tempRoute.children = filterAsyncRoutes(tempRoute.children, roles)
-			}
+		if (tempRoute.meta?.noLogin) {
 			res.push(tempRoute)
+			return
+		} else {
+			if (hasPermission(permissions, tempRoute)) {
+				if (tempRoute.children) {
+					tempRoute.children = filterAsyncRoutes(tempRoute.children, permissions)
+				}
+				res.push(tempRoute)
+			}
 		}
 	})
 	return res
@@ -28,8 +33,8 @@ export const usePermissionStore = defineStore('permission', () => {
 	const routes = ref<RouteRecordRaw[]>([])
 	const dynamicRoutes = ref<RouteRecordRaw[]>([])
 
-	const setRoutes = (roles: string[]) => {
-		const accessedRoutes = asyncRouteSettings.open ? filterAsyncRoutes(asyncRoutes, roles) : asyncRoutes
+	const setRoutes = (permissions: string[]) => {
+		const accessedRoutes = asyncRouteSettings.open ? filterAsyncRoutes(asyncRoutes, permissions) : asyncRoutes
 		routes.value = constantRoutes.concat(accessedRoutes)
 		dynamicRoutes.value = accessedRoutes
 	}
