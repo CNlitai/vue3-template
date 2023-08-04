@@ -1,4 +1,5 @@
 import { type RouteRecordRaw, createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import { getRouteComponent } from '@/router/getRouteComponent'
 
 const Layouts = () => import('@/layouts/index.vue')
 
@@ -14,6 +15,9 @@ export const constantRoutes: RouteRecordRaw[] = [
 			{
 				path: '/redirect/:path(.*)',
 				component: () => import('@/views/redirect/index.vue'),
+				meta: {
+					noLogin: true,
+				},
 			},
 		],
 	},
@@ -21,6 +25,7 @@ export const constantRoutes: RouteRecordRaw[] = [
 		path: '/403',
 		component: () => import('@/views/error-page/403.vue'),
 		meta: {
+			noLogin: true,
 			hidden: true,
 		},
 	},
@@ -28,6 +33,7 @@ export const constantRoutes: RouteRecordRaw[] = [
 		path: '/404',
 		component: () => import('@/views/error-page/404.vue'),
 		meta: {
+			noLogin: true,
 			hidden: true,
 		},
 		alias: '/:pathMatch(.*)*',
@@ -36,6 +42,7 @@ export const constantRoutes: RouteRecordRaw[] = [
 		path: '/login',
 		component: () => import('@/views/login/index.vue'),
 		meta: {
+			noLogin: true,
 			hidden: true,
 		},
 	},
@@ -46,7 +53,7 @@ export const constantRoutes: RouteRecordRaw[] = [
 		children: [
 			{
 				path: 'dashboard',
-				component: () => import('@/views/dashboard/index.vue'),
+				component: getRouteComponent('Dashboard', import('@/views/dashboard/index.vue')),
 				name: 'Dashboard',
 				meta: {
 					title: '首页',
@@ -69,7 +76,7 @@ export const constantRoutes: RouteRecordRaw[] = [
 		children: [
 			{
 				path: 'element-plus',
-				component: () => import('@/views/table/element-plus/index.vue'),
+				component: getRouteComponent('ElementPlus', import('@/views/table/element-plus/index.vue')),
 				name: 'ElementPlus',
 				meta: {
 					title: 'Element Plus',
@@ -93,6 +100,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
 		meta: {
 			title: '权限管理',
 			svgIcon: 'lock',
+			permission: 'permission',
 			roles: ['admin', 'editor'], // 可以在根路由中设置角色
 			alwaysShow: true, // 将始终显示根菜单
 		},

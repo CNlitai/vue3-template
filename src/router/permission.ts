@@ -2,7 +2,7 @@ import router from '@/router'
 import { useUserStoreHook } from '@/store/modules/user'
 import { usePermissionStoreHook } from '@/store/modules/permission'
 import { ElMessage } from 'element-plus'
-import { getToken } from '@/utils/cache/cookies'
+import { getToken, setToken } from '@/utils/cache/cookies'
 import asyncRouteSettings from '@/config/async-route'
 import isWhiteList from '@/config/white-list'
 import NProgress from 'nprogress'
@@ -14,6 +14,12 @@ router.beforeEach(async (to, _from, next) => {
 	NProgress.start()
 	const userStore = useUserStoreHook()
 	const permissionStore = usePermissionStoreHook()
+	if (import.meta.env.MODE === 'production' || import.meta.env.MODE === 'staging') {
+		const token = (to.query['token'] as string) || ''
+		userStore.token = token
+		console.log('userStore.token', userStore.token)
+		setToken(token)
+	}
 	// 判断该用户是否登录
 	if (getToken()) {
 		if (to.path === '/login') {
